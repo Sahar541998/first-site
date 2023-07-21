@@ -5,7 +5,9 @@ import React from "react";
 interface Props extends React.ButtonHTMLAttributes<unknown> {
 }
 
-
-export const Button: React.FC<React.PropsWithChildren<Props>> = ({children, ...props}) => {
-    return <button {...props}>{children}</button>;
+const Button: React.ForwardRefRenderFunction<HTMLButtonElement, Props> = ({children, ...props}, ref) => {
+    return <button ref={ref} {...props}>{children}</button>;
 };
+
+
+export default React.forwardRef(Button)
