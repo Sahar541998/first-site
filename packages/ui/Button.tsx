@@ -1,5 +1,11 @@
-import * as React from "react";
+"use client";
 
-export const Button = ({}) => {
-    return <button onClick={() => alert("boop")}>Boop</button>;
+import React from "react";
+
+interface Props extends React.ButtonHTMLAttributes<unknown> {
+}
+
+
+export const Button: React.FC<React.PropsWithChildren<Props>> = ({children, ...props}) => {
+    return <button {...props}>{children}</button>;
 };
