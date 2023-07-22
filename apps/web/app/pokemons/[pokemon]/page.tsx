@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Header} from "ui";
+import {Header} from "ui";
 import PokemonResponse from "../_entities/PokemomResponse";
 import Image from "next/image";
 import Link from "next/link";
