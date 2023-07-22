@@ -1,11 +1,25 @@
+"use client"
+
 import React from "react";
+import styled from "styled-components";
 
-interface Props extends React.ButtonHTMLAttributes<unknown> {
-}
+const Button = styled.button`
+  background-color: #0066ff;
+  color: #fff;
+  border: 0;
+  border-radius: 24px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .3s ease;
 
-const Button: React.ForwardRefRenderFunction<HTMLButtonElement, Props> = ({children, ...props}, ref) => {
-    return <button ref={ref} {...props}>{children}</button>;
-};
+  &:hover {
+    background-color: #005ce6;
+  }
+`
 
 
-export default React.forwardRef(Button)
+export default Button;
+
+
