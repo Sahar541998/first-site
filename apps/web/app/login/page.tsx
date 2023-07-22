@@ -2,7 +2,7 @@
 
 import React from "react";
 import styled from "styled-components";
-import {Button, Header, Input} from "ui";
+import {Button, Header} from "ui";
 
 
 const FullScreen = styled.div`
@@ -11,19 +11,48 @@ const FullScreen = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: #d3d3d3;
   display: flex;
 `
 
-const LoginBoxForm = styled.form`
-  width: 500px;
-  height: 400px;
-  border: 1px solid grey;
-  border-radius: 4px;
+const LoginBox = styled.div`
+  max-width: 300px;
+  background: #f1f7fe;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #010101;
+  height: 350px;
   margin: auto;
-  background-color: white;
-
+  border: 2px solid gray;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 `
+
+const FormBox = styled.form`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 24px 24px;
+  gap: 16px;
+  text-align: center;
+`
+
+const InputBox = styled.div`
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 1rem 0 .5rem;
+  width: 100%;
+`
+
+const FormInput = styled.input`
+
+  background: none;
+  border: 0;
+  outline: 0;
+  height: 40px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  font-size: .9rem;
+  padding: 8px 15px;`
 
 interface Props {
 
@@ -34,23 +63,31 @@ const Page: React.FC<Props> = () => {
 
 
     return <FullScreen>
-        <LoginBoxForm onSubmit={(event) => {
+        <LoginBox onSubmit={(event) => {
             event.preventDefault();
 
             alert(JSON.stringify(formData))
         }}>
-            <Header>Login Here</Header>
+            <FormBox>
+                <Header>Login</Header>
 
-            <Input required name={"username"} placeholder={"User Name"}
-                   onChange={e => setFormData((prev) => ({...prev, userName: e.target.value}))}/>
+                <InputBox>
+                    <FormInput required name={"username"} placeholder={"User Name"}
+                               onChange={e => setFormData((prev) => ({...prev, userName: e.target.value}))}/>
 
-            <Input required placeholder={"password"} type={'password'}
-                   onChange={e => setFormData((prev) => ({...prev, password: e.target.value}))}/>
+                    <FormInput required placeholder={"Password"} type={'password'}
+                               onChange={e => setFormData((prev) => ({...prev, password: e.target.value}))}/>
+                </InputBox>
 
-            <Button type={"submit"}>Submit</Button>
-        </LoginBoxForm>
+                <Button type={"submit"}>Submit</Button>
+            </FormBox>
+
+        </LoginBox>
     </FullScreen>
 }
 
 
 export default Page;
+
+
+
