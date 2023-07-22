@@ -2,8 +2,8 @@ import * as React from "react";
 import Input from "./Input";
 import Button from "./Button";
 import Card from "./Card";
+import Header from "./Header";
 
 
 // component exports
-export * from "./Header";
-export {Input, Button, Card}
+export {Input, Button, Card, Header}

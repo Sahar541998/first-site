@@ -1,8 +1,13 @@
+"use client"
+
+
 import * as React from "react";
+import styled from "styled-components";
 
-interface Props {
-}
+const Header = styled.h1`
+  font-weight: bold;
+  font-size: 1.6rem;
+`
 
-export const Header: React.FC<React.PropsWithChildren<Props>> = ({children}) => {
-    return <h1>{children}</h1>;
-};
+
+export default Header
