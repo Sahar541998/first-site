@@ -9,8 +9,9 @@ export default function RootLayout
 }) {
     return (
         <html lang="en">
-        <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry></body>
+        <body style={{margin: 0}}>
+        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </body>
         </html>
     );
 }
