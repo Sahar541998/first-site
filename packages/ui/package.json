@@ -15,6 +15,9 @@
     "eslint-config-custom": "*",
     "react": "^17.0.2",
     "tsconfig": "*",
-    "typescript": "^4.5.2"
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "styled-components": "^6.0.4"
   }
 }
