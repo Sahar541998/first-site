@@ -1,6 +1,7 @@
 import React from "react";
 import {Card} from "ui";
 import PokemonSummary from "./_entities/PokemomSummary";
+import {capsFirstLetter} from "utils";
 
 
 async function getData(): Promise<PokemonSummary[]> {
@@ -27,7 +28,7 @@ const Page: React.FC<Props> = async () => {
     return (
         <div style={{display: 'flex', gap: "16px", flexWrap: 'wrap', justifyContent: 'center', marginTop: "16px"}}>
             {pokemons.map(pokemon =>
-                <Card href={`/pokemons/${pokemon.name}`} key={pokemon.name}>{pokemon.name.toUpperCase()}</Card>
+                <Card href={`/pokemons/${pokemon.name}`} key={pokemon.name}>{capsFirstLetter(pokemon.name)}</Card>
             )}
         </div>
     )
