@@ -22,7 +22,7 @@ const Layout = ({children}) => {
 
     return <>
         <Navbar>
-            <div>Pokemons!</div>
+            <div>Pokemon!</div>
         </Navbar>
 
         {children}
