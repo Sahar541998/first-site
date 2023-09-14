@@ -3,8 +3,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Button = styled.button`
-  background-color: #0066ff;
+const Button = styled.button<{ cancel?: boolean }>`
+  background-color: ${({cancel = false}) => cancel ? 'grey' : '#0066ff'};
   color: #fff;
   border: 0;
   border-radius: 24px;
@@ -15,7 +15,8 @@ const Button = styled.button`
   transition: background-color .3s ease;
 
   &:hover {
-    background-color: #005ce6;
+    background-color: ${({cancel = false}) => cancel ? 'darkgrey' : '#005ce6'};
+
   }
 `
 

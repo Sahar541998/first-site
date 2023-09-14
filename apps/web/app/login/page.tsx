@@ -3,6 +3,7 @@
 import React from "react";
 import styled from "styled-components";
 import {Button, Header} from "ui";
+import Link from "next/link";
 
 
 const FullScreen = styled.div`
@@ -59,16 +60,11 @@ interface Props {
 }
 
 const Page: React.FC<Props> = () => {
-    const [formData, setFormData] = React.useState<{ userName: string, password: string }>({userName: "", password: ""})
-
+    const [, setFormData] = React.useState<{ userName: string, password: string }>({userName: "", password: ""})
 
     return <FullScreen>
-        <LoginBox onSubmit={(event) => {
-            event.preventDefault();
-
-            alert(JSON.stringify(formData))
-        }}>
-            <FormBox>
+        <LoginBox>
+            <FormBox action={"pokemons"}>
                 <Header>Login</Header>
 
                 <InputBox>
@@ -79,6 +75,7 @@ const Page: React.FC<Props> = () => {
                                onChange={e => setFormData((prev) => ({...prev, password: e.target.value}))}/>
                 </InputBox>
 
+                <Link href={"/pokemons"} onClick={()=>{return false}}>pokemon</Link>
                 <Button type={"submit"}>Submit</Button>
             </FormBox>
 

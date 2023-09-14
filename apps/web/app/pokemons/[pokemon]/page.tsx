@@ -1,9 +1,9 @@
 import React from "react";
 import {Header} from "ui";
 import PokemonResponse from "../_entities/PokemomResponse";
-import Image from "next/image";
 import Link from "next/link";
 import {capsFirstLetter} from "utils";
+import PokemonImage from "./PokemonImage";
 
 async function getData(pokemon: string): Promise<PokemonResponse> {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
@@ -32,7 +32,7 @@ const Page: React.FC<Props> = async ({params: {pokemon = "ditto"}}) => {
         <>
             <Link href={"/pokemons"}>Back</Link>
             <Header>{capsFirstLetter(summary.name)}</Header>
-            <Image width={200} height={200} alt={summary.name} src={summary.sprites.front_default}></Image>
+            <PokemonImage alt={summary.name} src={summary.sprites.front_default}/>
         </>
     )
 

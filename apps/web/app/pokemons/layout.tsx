@@ -6,7 +6,6 @@ const Navbar = styled.div`
   height: 64px;
   padding: 0 24px;
   border-bottom: 1px solid #ebebeb;
-  width: 100%;
   background-color: white;
   display: flex;
   align-items: center;
