@@ -57,13 +57,19 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({children, onClose
     }, [onClose, open])
 
     useEffect(() => {
-        window.document.addEventListener('keydown', closeCallBack)
+        document.addEventListener('keydown', closeCallBack)
 
         return () => {
-            window.document.removeEventListener('keydown', closeCallBack)
+            document.removeEventListener('keydown', closeCallBack)
         }
     }, [closeCallBack])
 
+    // useEffect(() => {
+    //     document.body.style.overflow = 'hidden';
+    //     return () => {
+    //         document.body.style.overflow = 'unset';
+    //     }
+    // }, []);
 
     if (!open) {
         return <></>

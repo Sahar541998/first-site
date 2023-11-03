@@ -1,12 +1,11 @@
 import React from "react";
-import {Header} from "ui";
 import PokemonResponse from "../_entities/PokemomResponse";
-import Link from "next/link";
+import {Header} from "ui";
 import {capsFirstLetter} from "utils";
-import PokemonImage from "./PokemonImage";
+import PokemonImage from "../pokemon/[pokemon]/PokemonImage";
 
 async function getData(pokemon: string): Promise<PokemonResponse> {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, { cache: 'force-cache' })
     // The return value is *not* serialized
     // You can return Date, Map, Set, etc.
 
@@ -21,22 +20,16 @@ async function getData(pokemon: string): Promise<PokemonResponse> {
 
 
 interface Props {
-    params: {
-        pokemon: string
-    }
+    pokemon: string
 }
 
-const Page: React.FC<Props> = async ({params: {pokemon = "ditto"}}) => {
+const PokemonView: React.FC<Props> = async ({pokemon}) => {
     const summary = await getData(pokemon);
-    return (
-        <>
-            <Link href={"/pokemons"}>Back</Link>
-            <Header>{capsFirstLetter(summary.name)}</Header>
-            <PokemonImage alt={summary.name} src={summary.sprites.front_default}/>
-        </>
-    )
 
+    return <>
+        <Header>{capsFirstLetter(summary.name)}</Header>
+        <PokemonImage alt={summary.name} src={summary.sprites.front_default}/>
+    </>
 }
 
-
-export default Page;
+export default PokemonView

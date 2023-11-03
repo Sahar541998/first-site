@@ -6,7 +6,7 @@ module.exports = {
         remotePatterns: [
             {
                 protocol: 'https',
-                // For pokemon assets
+                // For pokemon2 assets
                 hostname: 'raw.githubusercontent.com',
                 port: '',
                 pathname: '/**',

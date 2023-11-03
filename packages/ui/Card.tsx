@@ -73,7 +73,7 @@ interface Props {
 const Card: React.FC<React.PropsWithChildren<Props>> = ({children, ...props}) => {
 
 
-    return <CardView {...props}>{children}</CardView>
+    return <CardView scroll={false} {...props}>{children}</CardView>
 }
 
 export default Card

@@ -1,8 +1,8 @@
 "use client"
 
-const Error = () => {
+const Error = (a) => {
 
-    return (<div>Error!</div>);
+    return (<div>Error! {JSON.stringify(a)}</div>);
 }
 
 export default Error;
